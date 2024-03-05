@@ -8,21 +8,20 @@
  */
 
 #include "ddl.h"
-
-struct Node
-    {
-        uint16_t key;
-        char data[];
-        struct Node *next;
-		struct Node *prev;
-    };
     
 /**
  * @brief Initializes the temperature vector with zeros
  * @param temperatures Pointer to the temperature vector
  */
-void MyDLLInit()
+void MyDLLInit(struct Node* ddl, uint16_t max_size)
 {
+
+
+	ddl ->curr = head;
+	Node -> tail = NULL;
+	Node -> previous = NULL;
+	Node -> next = NULL;
+	max_size = 0;
 	return;
 }
 
