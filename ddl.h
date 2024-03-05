@@ -7,8 +7,8 @@
  * 
  */
 
-#ifndef FIFO_H
-#define FIFO_H
+#ifndef DDL_H
+#define DDL_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -42,4 +42,4 @@ void MyDLLRemove();
  */
 void MyDLLFind_Next_Previous();
 
-#endif // FIFO_H
+#endif // DDL_H
