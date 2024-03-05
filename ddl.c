@@ -2,12 +2,13 @@
  * \file:   ddl.c
  * \author: Francisco Heleno <francisco.c.heleno@ua.pt> and Hugo Carola <hugocarola@ua.pt>
  *
- * \date 5, March, 2024, 9:12 AM
+ * \date 5, March, 2024
  * \brief 
  * 
  */
 
 #include "ddl.h"
+
 /**
  * @brief Initializes the temperature vector with zeros
  * @param temperatures Pointer to the temperature vector
@@ -43,4 +44,3 @@ void MyDLLFind_Next_Previous()
 {
 	return;
 }
-
