@@ -9,6 +9,14 @@
 
 #include "ddl.h"
 
+struct Node
+    {
+        uint16_t key;
+        char data[];
+        struct Node *next;
+		struct Node *prev;
+    };
+    
 /**
  * @brief Initializes the temperature vector with zeros
  * @param temperatures Pointer to the temperature vector
