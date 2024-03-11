@@ -1,5 +1,5 @@
 /**
- * \file:   ddl.c
+ * \file:   main.c
  * \author: Francisco Heleno <francisco.c.heleno@ua.pt> and Hugo Carola <hugocarola@ua.pt>
  *
  * \date 5, March, 2024
@@ -20,7 +20,13 @@ int main(){
     MyDLLInsert(&dll, 1, data1);
     MyDLLInsert(&dll, 2, data2);
     MyDLLInsert(&dll, 3, data3);
-
+    // Print elements
     PrintDLL(&dll);
+
+    // Remove an element
+    MyDLLRemove(&dll, 2);
+    printf("After removing element with key 2:\n");
+    PrintDLL(&dll);
+
     return 0;
 }

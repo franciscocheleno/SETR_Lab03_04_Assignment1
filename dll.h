@@ -1,5 +1,5 @@
 /**
- * \file:   ddl.h
+ * \file:   dll.h
  * \author: Francisco Heleno <francisco.c.heleno@ua.pt> and Hugo Carola <hugocarola@ua.pt>
  *
  * \date 5, March, 2024
@@ -9,7 +9,7 @@
 
 #ifndef DLL_H
 #define DLL_H
-#define MAX_ELEM_SIZE 200
+#define MAX_ELEM_SIZE 256
 #define MAX_ELEMENTS 64
 
 #include <stdlib.h>
@@ -20,24 +20,24 @@
  * @brief Struct for a DLL node
  * @details temperatures Pointer to the temperature vector
  */
-typedef struct Node {
+typedef struct Node{
     uint16_t key;
     unsigned char data[MAX_ELEM_SIZE];
     struct Node *prev;
     struct Node *next;
-} Node;
+}Node;
 
 /**
  * @brief Struct for a DLL
  * @details temperatures Pointer to the temperature vector
  */
-typedef struct {
+typedef struct{
     Node nodes[MAX_ELEMENTS];
     Node *head;
     Node *tail;
     uint16_t max_elem;
     uint16_t count;
-} DLL;
+}DLL;
 
 /**
  * @brief Initializes the temperature vector with zeros
@@ -58,7 +58,7 @@ int MyDLLInsert(DLL *dll, uint16_t key, unsigned char *data);
  * @param temperatures Pointer to the temperature vector
  * @return 0
  */
-void MyDLLRemove();
+int MyDLLRemove(DLL *dll, uint16_t key);
 
 /**
  * @brief Initializes the temperature vector with zeros
