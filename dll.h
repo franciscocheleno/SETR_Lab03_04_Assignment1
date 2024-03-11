@@ -7,42 +7,51 @@
  * 
  */
 
-#ifndef DDL_H
-#define DDL_H
-#define MAX_ELEM_SIZE 150
-#define MAX_ELEMENTS 16
+#ifndef DLL_H
+#define DLL_H
+#define MAX_ELEM_SIZE 200
+#define MAX_ELEMENTS 64
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
 
 /**
- * @brief Initializes the temperature vector with zeros
+ * @brief Struct for a DLL node
  * @details temperatures Pointer to the temperature vector
  */
-typedef struct Node
-{
+typedef struct Node {
     uint16_t key;
-    char data[MAX_ELEM_SIZE];
+    unsigned char data[MAX_ELEM_SIZE];
+    struct Node *prev;
     struct Node *next;
-	struct Node *previous;
-    struct Node *head;
-	struct Node *tail;
-} Node[MAX_ELEMENTS];
+} Node;
+
+/**
+ * @brief Struct for a DLL
+ * @details temperatures Pointer to the temperature vector
+ */
+typedef struct {
+    Node nodes[MAX_ELEMENTS];
+    Node *head;
+    Node *tail;
+    uint16_t max_elem;
+    uint16_t count;
+} DLL;
 
 /**
  * @brief Initializes the temperature vector with zeros
  * @param temperatures Pointer to the temperature vector
  * @return 0
  */
-void MyDLLInit(List *l, uint16_t max_size);
+void MyDLLInit(DLL *dll, uint16_t max_elements);
 
 /**
  * @brief Initializes the temperature vector with zeros
  * @param temperatures Pointer to the temperature vector
  * @return 0
  */
-void MyDLLInsert();
+int MyDLLInsert(DLL *dll, uint16_t key, unsigned char *data);
 
 /**
  * @brief Initializes the temperature vector with zeros
@@ -58,4 +67,6 @@ void MyDLLRemove();
  */
 void MyDLLFind_Next_Previous();
 
-#endif // DDL_H
+void PrintDLL(DLL *dll);
+
+#endif // DLL_H
