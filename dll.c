@@ -77,13 +77,26 @@ int MyDLLRemove(DLL *dll, uint16_t key)
                 current->next->prev = current->prev;
             }
             dll->count--;
-            printf("\nElement with key %d found and removed\n", key);
+            printf("\nElement with key %d found and removed.\n", key);
             return 0;
         }
         current = current->next;
     }
     printf("Element with key %d not found.\n", key);
     return -1;
+}
+
+unsigned char *MyDLLFind(DLL *dll, uint16_t key){
+    Node *current = dll->head;
+    while(current != NULL){
+        if(current->key == key){
+            printf("Element with key %d found.\n", key);
+            return current->data;
+        }
+        current = current->next;
+    }
+    printf("\nElement with key %d not found.\n", key);
+    return NULL;
 }
 
 /**

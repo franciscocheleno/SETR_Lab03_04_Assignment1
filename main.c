@@ -20,13 +20,19 @@ int main(){
     MyDLLInsert(&dll, 1, data1);
     MyDLLInsert(&dll, 2, data2);
     MyDLLInsert(&dll, 3, data3);
+    printf("After insert elements.\n");
     // Print elements
     PrintDLL(&dll);
 
     // Remove an element
     MyDLLRemove(&dll, 2);
+    MyDLLRemove(&dll, 4);
     printf("After removing element with key 2:\n");
     PrintDLL(&dll);
+    
+    // Find and print specific elements
+    printf("Data of element with key 2: %s\n", MyDLLFind(&dll, 2));
+    printf("Data of element with key 3: %s\n", MyDLLFind(&dll, 3));
 
     return 0;
 }

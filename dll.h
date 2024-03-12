@@ -65,6 +65,13 @@ int MyDLLRemove(DLL *dll, uint16_t key);
  * @param temperatures Pointer to the temperature vector
  * @return 0
  */
+unsigned char *MyDLLFind(DLL *dll, uint16_t key);
+
+/**
+ * @brief Initializes the temperature vector with zeros
+ * @param temperatures Pointer to the temperature vector
+ * @return 0
+ */
 void MyDLLFind_Next_Previous();
 
 void PrintDLL(DLL *dll);
