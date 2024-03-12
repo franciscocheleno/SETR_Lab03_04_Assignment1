@@ -3,14 +3,14 @@
  * \author: Francisco Heleno <francisco.c.heleno@ua.pt> and Hugo Carola <hugocarola@ua.pt>
  *
  * \date 5, March, 2024
- * \brief 
+ * \brief Node and Dll datas structures, and function signatures.
  * 
  */
 
 #ifndef DLL_H
 #define DLL_H
-#define MAX_ELEM_SIZE 256
-#define MAX_ELEMENTS 64
+#define MAX_ELEM_SIZE 256 /**< Maximum size of element data */
+#define MAX_ELEMENTS 64 /**< Maximum number of elements in the DLL */
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -18,8 +18,7 @@
 #include <stdbool.h>
 
 /**
- * @brief Struct for a DLL node
- * @details temperatures Pointer to the temperature vector
+ * @brief Node structure for the Doubly Linked List (DLL).
  */
 typedef struct Node{
     uint16_t key;
@@ -29,8 +28,7 @@ typedef struct Node{
 }Node;
 
 /**
- * @brief Struct for a DLL
- * @details temperatures Pointer to the temperature vector
+ * @brief Doubly Linked List (DLL) structure.
  */
 typedef struct{
     Node nodes[MAX_ELEMENTS];
@@ -41,65 +39,47 @@ typedef struct{
 }DLL;
 
 /**
- * @brief Initializes the temperature vector with zeros
- * @param temperatures Pointer to the temperature vector
- * @return 0
+ * @brief Initializes the DLL module.
  */
 void MyDLLInit(DLL *dll, uint16_t max_elements);
 
 /**
- * @brief Initializes the temperature vector with zeros
- * @param temperatures Pointer to the temperature vector
- * @return 0
+ * @brief Inserts a new element into the DLL.
+ * @return 0 on success, -1 on failure.
  */
 int MyDLLInsert(DLL *dll, uint16_t key, unsigned char *data);
 
 /**
- * @brief Initializes the temperature vector with zeros
- * @param temperatures Pointer to the temperature vector
- * @return 0
+ * @brief Removes an element from the DLL.
+ * @return 0 on success, -1 if the element with the specified key is not found.
  */
 int MyDLLRemove(DLL *dll, uint16_t key);
 
 /**
- * @brief Initializes the temperature vector with zeros
- * @param temperatures Pointer to the temperature vector
- * @return 0
+ * @brief Finds an element in the DLL by its key.
+ * @return Pointer to the data of the element if found, NULL otherwise.
  */
 unsigned char *MyDLLFind(DLL *dll, uint16_t key);
 
 /**
- * @brief Initializes the temperature vector with zeros
- * @param temperatures Pointer to the temperature vector
- * @return 0
- */
-void MyDLLFind_Next_Previous();
-
-/**
- * @brief Initializes the temperature vector with zeros
- * @param temperatures Pointer to the temperature vector
- * @return 0
+ * @brief Finds the data of the next element in the DLL.
+ * @return Pointer to the data of the next element if found, NULL otherwise.
  */
 unsigned char *MyDLLFindNext(DLL *dll, uint16_t key);
 
 /**
- * @brief Initializes the temperature vector with zeros
- * @param temperatures Pointer to the temperature vector
- * @return 0
+ * @brief Finds the data of the previous element in the DLL.
+ * @return Pointer to the data of the previous element if found, NULL otherwise.
  */
 unsigned char *MyDLLFindPrevious(DLL *dll, uint16_t key);
 
 /**
- * @brief Initializes the temperature vector with zeros
- * @param temperatures Pointer to the temperature vector
- * @return 0
+ * @brief Sorts the elements of the DLL in ascending or descending order based on the specified order.
  */
 void MyDLLSort(DLL *dll, bool order);
 
 /**
- * @brief Initializes the temperature vector with zeros
- * @param temperatures Pointer to the temperature vector
- * @return 0
+ * @brief Prints the elements of the DLL.
  */
 void PrintDLL(DLL *dll);
 

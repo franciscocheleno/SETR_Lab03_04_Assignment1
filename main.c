@@ -3,17 +3,18 @@
  * \author: Francisco Heleno <francisco.c.heleno@ua.pt> and Hugo Carola <hugocarola@ua.pt>
  *
  * \date 5, March, 2024
- * \brief 
+ * \brief Module to test DLL.
  * 
  */
 
 #include "dll.h"
 
 int main(){
+    // Initialize DLL
     DLL dll;
     MyDLLInit(&dll, MAX_ELEMENTS);
 
-    // Insert elements
+    // Insert elements into DLL
     printf("Inserting elements in the DLL...\n");
     unsigned char data1[] = "data1";
     unsigned char data2[] = "123456789";
@@ -28,16 +29,17 @@ int main(){
     MyDLLInsert(&dll, 5, data5);
     MyDLLInsert(&dll, 6, data6);
     printf("After insert elements.\n");
-    // Print elements
+    // Print DLL elements
     PrintDLL(&dll);
 
     // Remove an element
     MyDLLRemove(&dll, 2);
     MyDLLRemove(&dll, 7);
     printf("After removing element with key 2:\n");
+    // Print DLL elements
     PrintDLL(&dll);
     
-    // Find and print specific elements
+    // Find and print specific elements in DLL
     printf("Data of element with key 2: %s\n", MyDLLFind(&dll, 2));
     printf("Data of element with key 3: %s\n", MyDLLFind(&dll, 3));
     printf("Next element after key 3: %s", MyDLLFindNext(&dll, 3));
@@ -46,8 +48,15 @@ int main(){
     printf("Previous element before key 1: %s\n", MyDLLFindPrevious(&dll, 1));
 
     // Sorting elements by keys
-    bool order = false;
+    bool order = false; // true == ascending & false == descending
     MyDLLSort(&dll, order);
+    // Print DLL elements
+    if(order == true){
+        printf("Sorted DLL elements in ascending order:\n");
+    }else{
+        printf("Sorted DLL elements in descending order:\n");
+    }
     PrintDLL(&dll);
+
     return 0;
 }

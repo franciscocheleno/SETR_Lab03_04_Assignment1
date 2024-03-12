@@ -10,8 +10,9 @@
 #include "dll.h"
     
 /**
- * @brief Initializes the temperature vector with zeros
- * @param temperatures Pointer to the temperature vector
+ * @brief Initializes the DLL module.
+ * @param dll Pointer to the DLL structure.
+ * @param max_elements Maximum number of elements in the DLL.
  */
 void MyDLLInit(DLL *dll, uint16_t max_elements)
 {
@@ -22,8 +23,11 @@ void MyDLLInit(DLL *dll, uint16_t max_elements)
 }
 
 /**
- * @brief Initializes the temperature vector with zeros
- * @param temperatures Pointer to the temperature vector
+ * @brief Inserts a new element into the DLL.
+ * @param dll Pointer to the DLL structure.
+ * @param key Key of the new element.
+ * @param data Data of the new element.
+ * @return 0 on success, -1 on failure.
  */
 int MyDLLInsert(DLL *dll, uint16_t key, unsigned char *data)
 {
@@ -55,8 +59,10 @@ int MyDLLInsert(DLL *dll, uint16_t key, unsigned char *data)
 }
 
 /**
- * @brief Initializes the temperature vector with zeros
- * @param temperatures Pointer to the temperature vector
+ * @brief Removes an element from the DLL.
+ * @param dll Pointer to the DLL structure.
+ * @param key Key of the element to remove.
+ * @return 0 on success, -1 if the element with the specified key is not found.
  */
 int MyDLLRemove(DLL *dll, uint16_t key) 
 {
@@ -86,6 +92,12 @@ int MyDLLRemove(DLL *dll, uint16_t key)
     return -1;
 }
 
+/**
+ * @brief Finds an element in the DLL by its key.
+ * @param dll Pointer to the DLL structure.
+ * @param key Key of the element to find.
+ * @return Pointer to the data of the element if found, NULL otherwise.
+ */
 unsigned char *MyDLLFind(DLL *dll, uint16_t key){
     printf("Finding the element with the key %d...", key);
     Node *current = dll->head;
@@ -101,8 +113,10 @@ unsigned char *MyDLLFind(DLL *dll, uint16_t key){
 }
 
 /**
- * @brief Initializes the temperature vector with zeros
- * @param temperatures Pointer to the temperature vector
+ * @brief Finds the data of the next element in the DLL.
+ * @param dll Pointer to the DLL structure.
+ * @param key Key of the current element.
+ * @return Pointer to the data of the next element if found, NULL otherwise.
  */
 unsigned char *MyDLLFindNext(DLL *dll, uint16_t key){
     printf("\nFinding the next element with the key %d...\n", key);
@@ -123,8 +137,10 @@ unsigned char *MyDLLFindNext(DLL *dll, uint16_t key){
 }
 
 /**
- * @brief Initializes the temperature vector with zeros
- * @param temperatures Pointer to the temperature vector
+ * @brief Finds the data of the previous element in the DLL.
+ * @param dll Pointer to the DLL structure.
+ * @param key Key of the current element.
+ * @return Pointer to the data of the previous element if found, NULL otherwise.
  */
 unsigned char *MyDLLFindPrevious(DLL *dll, uint16_t key){
     printf("\nFinding the previous element with the key %d...\n", key);
@@ -145,8 +161,9 @@ unsigned char *MyDLLFindPrevious(DLL *dll, uint16_t key){
 }
 
 /**
- * @brief Initializes the temperature vector with zeros
- * @param temperatures Pointer to the temperature vector
+ * @brief Sorts the elements of the DLL in ascending or descending order based on the specified order.
+ * @param dll Pointer to the DLL structure.
+ * @param order If true, sorts in ascending order; if false, sorts in descending order.
  */
 void MyDLLSort(DLL *dll, bool order)
 {
@@ -180,8 +197,8 @@ void MyDLLSort(DLL *dll, bool order)
 }
 
 /**
- * @brief Initializes the temperature vector with zeros
- * @param temperatures Pointer to the temperature vector
+ * @brief Prints the elements of the DLL.
+ * @param dll Pointer to the DLL structure.
  */
 void PrintDLL(DLL *dll){
     Node *current = dll->head;
