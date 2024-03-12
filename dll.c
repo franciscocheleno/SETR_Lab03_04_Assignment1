@@ -83,7 +83,7 @@ int MyDLLRemove(DLL *dll, uint16_t key)
                 current->next->prev = current->prev;
             }
             dll->count--;
-            printf("\nElement with key %d found and removed.\n", key);
+            printf("Element with key %d found and removed.\n", key);
             return 0;
         }
         current = current->next;
