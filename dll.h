@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 /**
  * @brief Struct for a DLL node
@@ -87,6 +88,13 @@ unsigned char *MyDLLFindNext(DLL *dll, uint16_t key);
  * @return 0
  */
 unsigned char *MyDLLFindPrevious(DLL *dll, uint16_t key);
+
+/**
+ * @brief Initializes the temperature vector with zeros
+ * @param temperatures Pointer to the temperature vector
+ * @return 0
+ */
+void MyDLLSort(DLL *dll, bool order);
 
 /**
  * @brief Initializes the temperature vector with zeros

@@ -45,5 +45,9 @@ int main(){
     printf("Previous element before key 3: %s", MyDLLFindPrevious(&dll, 3));
     printf("Previous element before key 1: %s\n", MyDLLFindPrevious(&dll, 1));
 
+    // Sorting elements by keys
+    bool order = false;
+    MyDLLSort(&dll, order);
+    PrintDLL(&dll);
     return 0;
 }

@@ -3,7 +3,7 @@
  * \author: Francisco Heleno <francisco.c.heleno@ua.pt> and Hugo Carola <hugocarola@ua.pt>
  *
  * \date 5, March, 2024
- * \brief 
+ * \brief Implementation of the Doubly Linked List (DLL) module.
  * 
  */
 
@@ -148,7 +148,42 @@ unsigned char *MyDLLFindPrevious(DLL *dll, uint16_t key){
  * @brief Initializes the temperature vector with zeros
  * @param temperatures Pointer to the temperature vector
  */
-void PrintDLL(DLL *dll) {
+void MyDLLSort(DLL *dll, bool order)
+{
+    printf("\nStarting sorting process...\n");
+    int swapped;
+    Node *current;
+
+    if(dll->head == NULL){
+        return;
+    }
+    do{
+        swapped = 0;
+        current = dll->head;
+        while(current->next != NULL){
+            if((order && current->key > current->next->key) || (!order && current->key < current->next->key)){
+                uint16_t temp_key = current->key;
+                current->key = current->next->key;
+                current->next->key = temp_key;
+
+                unsigned char temp_data[MAX_ELEM_SIZE];
+                for(int i = 0; i < MAX_ELEM_SIZE; i++){
+                    temp_data[i] = current->data[i];
+                    current->data[i] = current->next->data[i];
+                    current->next->data[i] = temp_data[i];
+                }
+                swapped = 1;
+            }
+            current = current->next;
+        }
+    }while(swapped);
+}
+
+/**
+ * @brief Initializes the temperature vector with zeros
+ * @param temperatures Pointer to the temperature vector
+ */
+void PrintDLL(DLL *dll){
     Node *current = dll->head;
     printf("DLL Elements:\n");
     while(current != NULL){
