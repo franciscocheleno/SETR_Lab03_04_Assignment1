@@ -1,0 +1,192 @@
+\doxysection{dll.\+c File Reference}
+\hypertarget{dll_8c}{}\label{dll_8c}\index{dll.c@{dll.c}}
+
+
+Implementation of the Doubly Linked List (\doxylink{struct_d_l_l}{DLL}) module.  
+
+
+{\ttfamily \#include "{}dll.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{dll_8c_a8e9d4c7a529bb63e13c457d98a5bac5c}{My\+DLLInit}} (\mbox{\hyperlink{struct_d_l_l}{DLL}} \texorpdfstring{$\ast$}{*}dll, uint16\+\_\+t max\+\_\+elements)
+\begin{DoxyCompactList}\small\item\em Initializes the \doxylink{struct_d_l_l}{DLL} module. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dll_8c_ad0fd836d1e8500ed7adf7f6808f2e338}{My\+DLLInsert}} (\mbox{\hyperlink{struct_d_l_l}{DLL}} \texorpdfstring{$\ast$}{*}dll, uint16\+\_\+t key, unsigned char \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Inserts a new element into the \doxylink{struct_d_l_l}{DLL}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{dll_8c_ab9b97c2b109259628223b4b2dc3b81e4}{My\+DLLRemove}} (\mbox{\hyperlink{struct_d_l_l}{DLL}} \texorpdfstring{$\ast$}{*}dll, uint16\+\_\+t key)
+\begin{DoxyCompactList}\small\item\em Removes an element from the \doxylink{struct_d_l_l}{DLL}. \end{DoxyCompactList}\item 
+unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{dll_8c_a98fcad1355d7b931f2d4badf375d12d5}{My\+DLLFind}} (\mbox{\hyperlink{struct_d_l_l}{DLL}} \texorpdfstring{$\ast$}{*}dll, uint16\+\_\+t key)
+\begin{DoxyCompactList}\small\item\em Finds an element in the \doxylink{struct_d_l_l}{DLL} by its key. \end{DoxyCompactList}\item 
+unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{dll_8c_a29ca6d8f360e666a8cae842d96b23479}{My\+DLLFind\+Next}} (\mbox{\hyperlink{struct_d_l_l}{DLL}} \texorpdfstring{$\ast$}{*}dll, uint16\+\_\+t key)
+\begin{DoxyCompactList}\small\item\em Finds the data of the next element in the \doxylink{struct_d_l_l}{DLL}. \end{DoxyCompactList}\item 
+unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{dll_8c_acbfa11708924747eb4ab316eb9129573}{My\+DLLFind\+Previous}} (\mbox{\hyperlink{struct_d_l_l}{DLL}} \texorpdfstring{$\ast$}{*}dll, uint16\+\_\+t key)
+\begin{DoxyCompactList}\small\item\em Finds the data of the previous element in the \doxylink{struct_d_l_l}{DLL}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{dll_8c_a5090e1854f0326bff86db8d9a20485b0}{My\+DLLSort}} (\mbox{\hyperlink{struct_d_l_l}{DLL}} \texorpdfstring{$\ast$}{*}dll, bool order)
+\begin{DoxyCompactList}\small\item\em Sorts the elements of the \doxylink{struct_d_l_l}{DLL} in ascending or descending order based on the specified order. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{dll_8c_a6c848e1bdce597e8718332add83164d6}{Print\+DLL}} (\mbox{\hyperlink{struct_d_l_l}{DLL}} \texorpdfstring{$\ast$}{*}dll)
+\begin{DoxyCompactList}\small\item\em Prints the elements of the \doxylink{struct_d_l_l}{DLL}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the Doubly Linked List (\doxylink{struct_d_l_l}{DLL}) module. 
+
+\begin{DoxyAuthor}{Author}
+\+: Francisco Heleno \href{mailto:francisco.c.heleno@ua.pt}{\texttt{ francisco.\+c.\+heleno@ua.\+pt}} and Hugo Carola \href{mailto:hugocarola@ua.pt}{\texttt{ hugocarola@ua.\+pt}}
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+5, March, 2024  
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{dll_8c_a98fcad1355d7b931f2d4badf375d12d5}\label{dll_8c_a98fcad1355d7b931f2d4badf375d12d5} 
+\index{dll.c@{dll.c}!MyDLLFind@{MyDLLFind}}
+\index{MyDLLFind@{MyDLLFind}!dll.c@{dll.c}}
+\doxysubsubsection{\texorpdfstring{MyDLLFind()}{MyDLLFind()}}
+{\footnotesize\ttfamily unsigned char \texorpdfstring{$\ast$}{*} My\+DLLFind (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_l}{DLL}} \texorpdfstring{$\ast$}{*}}]{dll,  }\item[{uint16\+\_\+t}]{key }\end{DoxyParamCaption})}
+
+
+
+Finds an element in the \doxylink{struct_d_l_l}{DLL} by its key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dll} & Pointer to the \doxylink{struct_d_l_l}{DLL} structure. \\
+\hline
+{\em key} & Key of the element to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the data of the element if found, NULL otherwise. 
+\end{DoxyReturn}
+\Hypertarget{dll_8c_a29ca6d8f360e666a8cae842d96b23479}\label{dll_8c_a29ca6d8f360e666a8cae842d96b23479} 
+\index{dll.c@{dll.c}!MyDLLFindNext@{MyDLLFindNext}}
+\index{MyDLLFindNext@{MyDLLFindNext}!dll.c@{dll.c}}
+\doxysubsubsection{\texorpdfstring{MyDLLFindNext()}{MyDLLFindNext()}}
+{\footnotesize\ttfamily unsigned char \texorpdfstring{$\ast$}{*} My\+DLLFind\+Next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_l}{DLL}} \texorpdfstring{$\ast$}{*}}]{dll,  }\item[{uint16\+\_\+t}]{key }\end{DoxyParamCaption})}
+
+
+
+Finds the data of the next element in the \doxylink{struct_d_l_l}{DLL}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dll} & Pointer to the \doxylink{struct_d_l_l}{DLL} structure. \\
+\hline
+{\em key} & Key of the current element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the data of the next element if found, NULL otherwise. 
+\end{DoxyReturn}
+\Hypertarget{dll_8c_acbfa11708924747eb4ab316eb9129573}\label{dll_8c_acbfa11708924747eb4ab316eb9129573} 
+\index{dll.c@{dll.c}!MyDLLFindPrevious@{MyDLLFindPrevious}}
+\index{MyDLLFindPrevious@{MyDLLFindPrevious}!dll.c@{dll.c}}
+\doxysubsubsection{\texorpdfstring{MyDLLFindPrevious()}{MyDLLFindPrevious()}}
+{\footnotesize\ttfamily unsigned char \texorpdfstring{$\ast$}{*} My\+DLLFind\+Previous (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_l}{DLL}} \texorpdfstring{$\ast$}{*}}]{dll,  }\item[{uint16\+\_\+t}]{key }\end{DoxyParamCaption})}
+
+
+
+Finds the data of the previous element in the \doxylink{struct_d_l_l}{DLL}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dll} & Pointer to the \doxylink{struct_d_l_l}{DLL} structure. \\
+\hline
+{\em key} & Key of the current element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the data of the previous element if found, NULL otherwise. 
+\end{DoxyReturn}
+\Hypertarget{dll_8c_a8e9d4c7a529bb63e13c457d98a5bac5c}\label{dll_8c_a8e9d4c7a529bb63e13c457d98a5bac5c} 
+\index{dll.c@{dll.c}!MyDLLInit@{MyDLLInit}}
+\index{MyDLLInit@{MyDLLInit}!dll.c@{dll.c}}
+\doxysubsubsection{\texorpdfstring{MyDLLInit()}{MyDLLInit()}}
+{\footnotesize\ttfamily void My\+DLLInit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_l}{DLL}} \texorpdfstring{$\ast$}{*}}]{dll,  }\item[{uint16\+\_\+t}]{max\+\_\+elements }\end{DoxyParamCaption})}
+
+
+
+Initializes the \doxylink{struct_d_l_l}{DLL} module. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dll} & Pointer to the \doxylink{struct_d_l_l}{DLL} structure. \\
+\hline
+{\em max\+\_\+elements} & Maximum number of elements in the \doxylink{struct_d_l_l}{DLL}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{dll_8c_ad0fd836d1e8500ed7adf7f6808f2e338}\label{dll_8c_ad0fd836d1e8500ed7adf7f6808f2e338} 
+\index{dll.c@{dll.c}!MyDLLInsert@{MyDLLInsert}}
+\index{MyDLLInsert@{MyDLLInsert}!dll.c@{dll.c}}
+\doxysubsubsection{\texorpdfstring{MyDLLInsert()}{MyDLLInsert()}}
+{\footnotesize\ttfamily int My\+DLLInsert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_l}{DLL}} \texorpdfstring{$\ast$}{*}}]{dll,  }\item[{uint16\+\_\+t}]{key,  }\item[{unsigned char \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Inserts a new element into the \doxylink{struct_d_l_l}{DLL}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dll} & Pointer to the \doxylink{struct_d_l_l}{DLL} structure. \\
+\hline
+{\em key} & Key of the new element. \\
+\hline
+{\em data} & Data of the new element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+\Hypertarget{dll_8c_ab9b97c2b109259628223b4b2dc3b81e4}\label{dll_8c_ab9b97c2b109259628223b4b2dc3b81e4} 
+\index{dll.c@{dll.c}!MyDLLRemove@{MyDLLRemove}}
+\index{MyDLLRemove@{MyDLLRemove}!dll.c@{dll.c}}
+\doxysubsubsection{\texorpdfstring{MyDLLRemove()}{MyDLLRemove()}}
+{\footnotesize\ttfamily int My\+DLLRemove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_l}{DLL}} \texorpdfstring{$\ast$}{*}}]{dll,  }\item[{uint16\+\_\+t}]{key }\end{DoxyParamCaption})}
+
+
+
+Removes an element from the \doxylink{struct_d_l_l}{DLL}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dll} & Pointer to the \doxylink{struct_d_l_l}{DLL} structure. \\
+\hline
+{\em key} & Key of the element to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 if the element with the specified key is not found. 
+\end{DoxyReturn}
+\Hypertarget{dll_8c_a5090e1854f0326bff86db8d9a20485b0}\label{dll_8c_a5090e1854f0326bff86db8d9a20485b0} 
+\index{dll.c@{dll.c}!MyDLLSort@{MyDLLSort}}
+\index{MyDLLSort@{MyDLLSort}!dll.c@{dll.c}}
+\doxysubsubsection{\texorpdfstring{MyDLLSort()}{MyDLLSort()}}
+{\footnotesize\ttfamily void My\+DLLSort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_l}{DLL}} \texorpdfstring{$\ast$}{*}}]{dll,  }\item[{bool}]{order }\end{DoxyParamCaption})}
+
+
+
+Sorts the elements of the \doxylink{struct_d_l_l}{DLL} in ascending or descending order based on the specified order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dll} & Pointer to the \doxylink{struct_d_l_l}{DLL} structure. \\
+\hline
+{\em order} & If true, sorts in ascending order; if false, sorts in descending order. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{dll_8c_a6c848e1bdce597e8718332add83164d6}\label{dll_8c_a6c848e1bdce597e8718332add83164d6} 
+\index{dll.c@{dll.c}!PrintDLL@{PrintDLL}}
+\index{PrintDLL@{PrintDLL}!dll.c@{dll.c}}
+\doxysubsubsection{\texorpdfstring{PrintDLL()}{PrintDLL()}}
+{\footnotesize\ttfamily void Print\+DLL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_l_l}{DLL}} \texorpdfstring{$\ast$}{*}}]{dll }\end{DoxyParamCaption})}
+
+
+
+Prints the elements of the \doxylink{struct_d_l_l}{DLL}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dll} & Pointer to the \doxylink{struct_d_l_l}{DLL} structure. \\
+\hline
+\end{DoxyParams}
