@@ -87,10 +87,11 @@ int MyDLLRemove(DLL *dll, uint16_t key)
 }
 
 unsigned char *MyDLLFind(DLL *dll, uint16_t key){
+    printf("Finding the element with the key %d...", key);
     Node *current = dll->head;
     while(current != NULL){
         if(current->key == key){
-            printf("Element with key %d found.\n", key);
+            printf("\nElement with key %d found.\n", key);
             return current->data;
         }
         current = current->next;
@@ -103,17 +104,56 @@ unsigned char *MyDLLFind(DLL *dll, uint16_t key){
  * @brief Initializes the temperature vector with zeros
  * @param temperatures Pointer to the temperature vector
  */
-void MyDLLFind_Next_Previous() 
-{
-	return;
+unsigned char *MyDLLFindNext(DLL *dll, uint16_t key){
+    printf("\nFinding the next element with the key %d...\n", key);
+    Node *current = dll->head;
+    while(current != NULL){
+        if(current->key == key){
+            if(current->next != NULL){
+                return current->next->data;
+            }else{
+                printf("No next element found (current element is last).\n");
+                return NULL;
+            }
+        }
+        current = current->next;
+    }
+    printf("Element with key %d not found.\n", key+1);
+    return NULL;
 }
 
+/**
+ * @brief Initializes the temperature vector with zeros
+ * @param temperatures Pointer to the temperature vector
+ */
+unsigned char *MyDLLFindPrevious(DLL *dll, uint16_t key){
+    printf("\nFinding the previous element with the key %d...\n", key);
+    Node *current = dll->head;
+    while(current != NULL){
+        if(current->key == key){
+            if(current->prev != NULL){
+                return current->prev->data;
+            }else{
+                printf("No previous element found (current element is first).\n");
+                return NULL;
+            }
+        }
+        current = current->next;
+    }
+    printf("Element with key %d not found.\n", key-1);
+    return NULL;
+}
 
+/**
+ * @brief Initializes the temperature vector with zeros
+ * @param temperatures Pointer to the temperature vector
+ */
 void PrintDLL(DLL *dll) {
     Node *current = dll->head;
     printf("DLL Elements:\n");
-    while (current != NULL) {
+    while(current != NULL){
         printf("Key: %d, Data: %s\n", current->key, current->data);
         current = current->next;
     }
+    printf("\n");
 }

@@ -74,6 +74,25 @@ unsigned char *MyDLLFind(DLL *dll, uint16_t key);
  */
 void MyDLLFind_Next_Previous();
 
+/**
+ * @brief Initializes the temperature vector with zeros
+ * @param temperatures Pointer to the temperature vector
+ * @return 0
+ */
+unsigned char *MyDLLFindNext(DLL *dll, uint16_t key);
+
+/**
+ * @brief Initializes the temperature vector with zeros
+ * @param temperatures Pointer to the temperature vector
+ * @return 0
+ */
+unsigned char *MyDLLFindPrevious(DLL *dll, uint16_t key);
+
+/**
+ * @brief Initializes the temperature vector with zeros
+ * @param temperatures Pointer to the temperature vector
+ * @return 0
+ */
 void PrintDLL(DLL *dll);
 
 #endif // DLL_H
