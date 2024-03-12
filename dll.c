@@ -38,7 +38,7 @@ int MyDLLInsert(DLL *dll, uint16_t key, unsigned char *data)
 
     Node *new_node = &dll->nodes[dll->count];
     new_node->key = key;
-    for(int i = 0; i < MAX_ELEMENTS; ++i){
+    for(int i = 0; i < MAX_ELEM_SIZE; ++i){
         new_node->data[i] = data[i];
     }
 
@@ -143,7 +143,7 @@ unsigned char *MyDLLFindNext(DLL *dll, uint16_t key){
  * @return Pointer to the data of the previous element if found, NULL otherwise.
  */
 unsigned char *MyDLLFindPrevious(DLL *dll, uint16_t key){
-    printf("\nFinding the previous element with the key %d...\n", key);
+    printf("Finding the previous element with the key %d...\n", key);
     Node *current = dll->head;
     while(current != NULL){
         if(current->key == key){
@@ -167,7 +167,7 @@ unsigned char *MyDLLFindPrevious(DLL *dll, uint16_t key){
  */
 void MyDLLSort(DLL *dll, bool order)
 {
-    printf("\nStarting sorting process...\n");
+    printf("Starting sorting process...\n");
     int swapped;
     Node *current;
 

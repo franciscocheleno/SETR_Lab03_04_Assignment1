@@ -15,7 +15,7 @@ int main(){
     MyDLLInit(&dll, MAX_ELEMENTS);
 
     // Insert elements into DLL
-    printf("Inserting elements in the DLL...\n");
+    printf("\n------------------\nInserting elements in the DLL...\n");
     unsigned char data1[] = "data1";
     unsigned char data2[] = "123456789";
     unsigned char data3[] = "#### Hello World ###";
@@ -33,6 +33,7 @@ int main(){
     PrintDLL(&dll);
 
     // Remove an element
+    printf("------------------\n");
     MyDLLRemove(&dll, 2);
     MyDLLRemove(&dll, 7);
     printf("After removing element with key 2:\n");
@@ -40,6 +41,7 @@ int main(){
     PrintDLL(&dll);
     
     // Find and print specific elements in DLL
+    printf("------------------\n");
     printf("Data of element with key 2: %s\n", MyDLLFind(&dll, 2));
     printf("Data of element with key 3: %s\n", MyDLLFind(&dll, 3));
     printf("Next element after key 3: %s", MyDLLFindNext(&dll, 3));
@@ -48,6 +50,7 @@ int main(){
     printf("Previous element before key 1: %s\n", MyDLLFindPrevious(&dll, 1));
 
     // Sorting elements by keys
+    printf("\n------------------\n");
     bool order = false; // true == ascending & false == descending
     MyDLLSort(&dll, order);
     // Print DLL elements
