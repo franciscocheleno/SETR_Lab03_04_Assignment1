@@ -143,7 +143,7 @@ unsigned char *MyDLLFindNext(DLL *dll, uint16_t key){
  * @return Pointer to the data of the previous element if found, NULL otherwise.
  */
 unsigned char *MyDLLFindPrevious(DLL *dll, uint16_t key){
-    printf("Finding the previous element with the key %d...\n", key);
+    printf("\nFinding the previous element with the key %d...\n", key);
     Node *current = dll->head;
     while(current != NULL){
         if(current->key == key){
